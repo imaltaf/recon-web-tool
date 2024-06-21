@@ -1,14 +1,13 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const CommandList = ({ domain }) => {
-    if (!domain) return null;
-
     useEffect(() => {
+        if (!domain) return;
+
         window.copyToClipboard = (button, preId) => {
             const pre = document.getElementById(preId);
             const commandText = pre.textContent.trim();
-        
+
             navigator.clipboard.writeText(commandText).then(() => {
                 button.classList.add('bg-green-500', 'hover:bg-green-600');
                 setTimeout(() => {
@@ -18,7 +17,9 @@ const CommandList = ({ domain }) => {
                 console.error('Failed to copy text: ', err);
             });
         };
-    }, []);
+    }, [domain]);
+
+    if (!domain) return null;
 
     const commands = `
 <h2 class="bg-gray-900 text-green-400 font-mono text-xl p-4 rounded-lg shadow-lg border border-gray-700 my-4">crt.sh Enumeration</h2>
