@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for glassmorphism effect */
+.glassmorph {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.copy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.1); /* Transparent background */
+  transition: background 0.2s;
+  width: 32px; /* Adjust button size */
+  height: 32px;
+  border-radius: 50%; /* Make button round */
+  border: none;
+}
+.copy-button:hover {
+  background: rgba(0, 0, 0, 0.2); /* Darken on hover */
+}
+.copy-button img {
+  width: 20px; /* Adjust icon size */
+  height: 20px;
+}
+
+.copied-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4caf50; /* Neon green background */
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: none;
+}
+.animate-bounce {
+  animation: bounce 1s;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-20%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
+
+body {
+  background-color: #000;
+}
+
+pre {
+    background: transparent;
+    padding: 10px;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    border: 1px solid #ccc;
+    color: white;
+    position: relative;
+    backdrop-filter: blur(35px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
+
+}
+
+input {
+    background-color: rgb(255, 255, 255, 0.3);
+  }
+
+  .fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    margin: 0; /* Override the m-4 margin to prevent any gaps */
+    border-top: 1px solid #e7e7e7; /* Optional: Add a top border for better visual separation */
+}
